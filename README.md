@@ -11,7 +11,7 @@ Hey Folks this is a repo to learn react native by making a sample ekart applicat
 1. First Of all you need to install node.js you can install it by going to this link https://nodejs.org/en . While installing node tick on    npm. 
 2. Install VsCode https://code.visualstudio.com .
 3. Install Android Studio from this link https://developer.android.com/studio.
-4. Now setup a virtual device inside emulator https://code.visualstudio.com .
+4. Now setup a virtual device(emulator) inside android studio https://code.visualstudio.com .
 
   Other Installations
   
