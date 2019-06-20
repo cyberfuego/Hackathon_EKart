@@ -1,4 +1,4 @@
-# Hackathon_EKart
+# Hackathon_EKart updated
 
 Hey Folks this is a repo to learn react native by making a sample ekart application. So Let's get started
 
