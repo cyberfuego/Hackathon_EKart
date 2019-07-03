@@ -37,7 +37,7 @@ Hey Folks this is a repo to learn react native by making a sample ekart applicat
       $ npm install --save-dev create-react-component-folder
       $ npx crcf --typescript myComponent
       
-    Since this project is using typescript so typescript the above command will install typescript component.
+    Since this project is using typescript so the above command will install typescript component.
     
     You can run the following command to see what other type of components can be installed
     
