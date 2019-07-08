@@ -22,9 +22,9 @@ Hey Folks this is a repo to learn react native by making a sample ekart applicat
   
  1. Go to VsCode->Terminal enter following commands (Please open emulator from android studio or from cmd)
  
-     react-native init AwesomeProject
-     cd AwesomeProject
-     react-native run-android
+     1.react-native init AwesomeProject
+     2.cd AwesomeProject
+     3.react-native run-android
      
    Other links
    
