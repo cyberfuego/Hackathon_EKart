@@ -17,7 +17,7 @@ class Dashboard extends React.Component<any, any>  {
               FashionMania
              </Text>
             <TouchableOpacity onPress={this._onPress} style={styles.btnStyle}>
-              <Text style={{color:"#FFFFFF"}}>
+              <Text style={{color:"#FFFFFF",fontSize: 30}}>
                 START SHOPPING 
                </Text>
             </TouchableOpacity>
@@ -31,7 +31,7 @@ class Dashboard extends React.Component<any, any>  {
 }
 const styles = StyleSheet.create({
   btnStyle: {
-    width: "90%",
+    width: "40%",
     height: 60,
     marginBottom: 36,
     flexDirection:"row",
@@ -40,9 +40,8 @@ const styles = StyleSheet.create({
      alignItems:'center',
     bottom:0,
     position:"absolute",
-    marginLeft:60
-
-  },
+    alignSelf: 'center',
+    },
 
 
 });
