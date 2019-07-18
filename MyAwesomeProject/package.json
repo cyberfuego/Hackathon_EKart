@@ -18,6 +18,7 @@
     "@types/react-native": "0.57.63",
     "@types/react-test-renderer": "16.8.2",
     "babel-jest": "24.8.0",
+    "create-react-component-folder": "^0.1.30",
     "jest": "24.8.0",
     "metro-react-native-babel-preset": "0.54.1",
     "react-test-renderer": "16.8.3",
@@ -26,4 +27,5 @@
   "jest": {
     "preset": "react-native"
   }
+  
 }
