@@ -32,7 +32,7 @@ class Dashboard extends React.Component<any, any>  {
 const styles = StyleSheet.create({
   btnStyle: {
     width: "90%",
-    height: 40,
+    height: 60,
     marginBottom: 36,
     flexDirection:"row",
     backgroundColor:"#841584",
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
      alignItems:'center',
     bottom:0,
     position:"absolute",
-    marginLeft:20
+    marginLeft:60
 
   },
 
