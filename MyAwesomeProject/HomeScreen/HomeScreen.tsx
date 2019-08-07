@@ -12,7 +12,7 @@ class HomeScreen extends React.Component<any, any>  {
   }
 
   fetchData = async() => {
-    const response = await fetch('https://randomuser.me/api?results=30') ;
+    const response = await fetch('https://randomuser.me/api?results=100') ;
     const json = await response.json() ;
     this.setState({data : json.results}) ;  
   }
@@ -34,7 +34,7 @@ class HomeScreen extends React.Component<any, any>  {
   renderImage = (item : any) => {
     if(item != null){
         if(item.picture != null)
-        return item.picture.medium
+        return item.picture.large
     }
 
   }
@@ -54,7 +54,7 @@ class HomeScreen extends React.Component<any, any>  {
           keyExtractor={(x, i) => this.returnExtractor(i)}
           renderItem={({ item }) =>
             <View style = {styles.Card}>
-              <Image style = {styles.Image} source = {{uri : this.renderImage(item)}}/>
+              <Image style = {styles.Image} source = {{uri : this.renderImage(item)}} resizeMode = "contain" />
               <Text style = {styles.Name}>
                   {this.returnData(item)}
               </Text>
@@ -72,7 +72,6 @@ class HomeScreen extends React.Component<any, any>  {
 
 const styles = StyleSheet.create({
   Card : { 
-    
     backgroundColor : '#BDBDBD',
     flex : 1,
     margin : 10,
@@ -85,8 +84,14 @@ const styles = StyleSheet.create({
   },
 
   Image : {
-    padding : 50,
-    marginTop : 10
+    flex : 1,
+    height : undefined,
+    width : undefined,
+    alignSelf : 'stretch',
+    marginTop : 10,
+    borderRadius : 75,
+    borderWidth : 2,
+   
     
   },
 
@@ -98,7 +103,8 @@ const styles = StyleSheet.create({
 
   Email : {
     fontSize : 10,
-    fontFamily : 'Roboto'
+    fontFamily : 'Roboto',
+    fontWeight : 'bold'
   }
 
 });
