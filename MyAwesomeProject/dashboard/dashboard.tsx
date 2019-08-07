@@ -1,10 +1,14 @@
 import * as React from 'react';
 import { View, Text, Button, Alert, StyleSheet, ImageBackground ,TouchableOpacity} from 'react-native';
+import HomeScreen from '../HomeScreen';
 
 class Dashboard extends React.Component<any, any>  {
+  
 
   _onPress() {
-    Alert.alert('Start Shopping!');
+    <View><HomeScreen/></View>
+   
+  // Alert.alert('Start Shopping!');
   }
 
   public render() {
@@ -16,7 +20,7 @@ class Dashboard extends React.Component<any, any>  {
             <Text style={{ textAlign: 'right', fontFamily: 'Midtown', marginTop: 50, marginEnd: 50, fontSize: 60, color: "#841584" }}>
               FashionMania
              </Text>
-            <TouchableOpacity onPress={this._onPress} style={styles.btnStyle}>
+            <TouchableOpacity onPress={this._onPress} style={styles.btnStyle} activeOpacity = {0.8}>
               <Text style={{color:"#FFFFFF",fontSize: 30}}>
                 START SHOPPING 
                </Text>
