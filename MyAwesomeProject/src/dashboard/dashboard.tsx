@@ -8,12 +8,11 @@ class Dashboard extends React.Component<any, any>  {
 
   static navigationOptions = {
     header: null,
-  };
+  }
 
   _onPress=()=> {
    console.log('navigation',this.props.navigation);
    this.props.navigation.navigate('Home',{id:1})
- 
   }
 
   
@@ -35,7 +34,6 @@ class Dashboard extends React.Component<any, any>  {
             </TouchableOpacity>
           </ImageBackground>
         </View>
-
       </View>
     );
   }

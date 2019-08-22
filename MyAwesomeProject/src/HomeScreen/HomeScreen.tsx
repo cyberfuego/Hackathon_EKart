@@ -1,69 +1,60 @@
 import * as React from 'react';
-import { FlatList, StyleSheet, Text, View, Image} from 'react-native';
+import { FlatList, StyleSheet, Text, View, Image, ActivityIndicator} from 'react-native';
 import { isTemplateElement } from '@babel/types';
 import { User } from '../..';
 
 class HomeScreen extends React.Component<any, any>  {
   state = {
-    data: [] 
-}
+    data: [] ,
+    loading : true
+  }
 
 static navigationOptions = {
   title: 'Home',
  };
 
   componentDidMount  = () => {
-    debugger;
     console.log('idd', this.props.navigation.getParam('id'));
     this.fetchData() ;
   }
 
   fetchData = async() => {
-    const response = await fetch('https://randomuser.me/api?results=100') ;
+    const response = await fetch('https://randomuser.me/api?results=1000') ;
     const json = await response.json() ;
-    debugger
-    this.setState({data : json.results}) ;  
+    this.setState({loading : false})
+    this.setState({data : json.results});  
   }
 
-  // returnData = (item : any) =>{
-  //   if(item != null){
-  //     if(item.name != null){
-  //       return `${item.name.first}`
-  //     }
-  //   }
-  // }
    
   
   returnData = (item : User) =>{
-        return `${item.name.first} ${item.name.last}`
-      
-    }
-  
+    return `${item.name.first}`
+  }
  
-
   returnExtractor = (index : any)=>{
     if(index != null){
       return index
     }
   }
 
-  renderImage = (item : any) => {
-    if(item != null){
-        if(item.picture != null)
-        return item.picture.large
-    }
-
+  renderImage = (item : User) => {
+    return item.picture.large
   }
 
-  returnEmail = (item : any) => {
-    if(item != null) {
-      if(item.email != null){
-        return `${item.email}`
-      }
-    }
+  returnEmail = (item :User) => {
+      return  item.email
   }
+  
 
   render() {
+
+    if(this.state.loading){
+      return(
+        <View style = {styles.loader}>
+        <ActivityIndicator size = 'small' color = '#841584'/>
+        </View>
+      )
+    }
     return (
       <FlatList
           data={this.state.data}
@@ -77,11 +68,9 @@ static navigationOptions = {
               <Text style = {styles.Email}>
                 {this.returnEmail(item)}
               </Text>
-              
             </View>}
           numColumns = {2}
         />
-      
     );
   }
 }
@@ -107,8 +96,6 @@ const styles = StyleSheet.create({
     marginTop : 10,
     borderRadius : 75,
     borderWidth : 2,
-   
-    
   },
 
   Name : {
@@ -121,7 +108,14 @@ const styles = StyleSheet.create({
     fontSize : 10,
     fontFamily : 'Roboto',
     fontWeight : 'bold'
-  }
+  },
+
+  loader:{
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff"
+   }
 
 });
 
