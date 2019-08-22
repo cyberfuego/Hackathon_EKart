@@ -1,29 +1,45 @@
 import * as React from 'react';
 import { FlatList, StyleSheet, Text, View, Image} from 'react-native';
 import { isTemplateElement } from '@babel/types';
+import { User } from '../..';
 
 class HomeScreen extends React.Component<any, any>  {
   state = {
     data: [] 
 }
 
+static navigationOptions = {
+  title: 'Home',
+ };
+
   componentDidMount  = () => {
+    debugger;
+    console.log('idd', this.props.navigation.getParam('id'));
     this.fetchData() ;
   }
 
   fetchData = async() => {
     const response = await fetch('https://randomuser.me/api?results=100') ;
     const json = await response.json() ;
+    debugger
     this.setState({data : json.results}) ;  
   }
 
-  returnData = (item : any) =>{
-    if(item != null){
-      if(item.name != null){
-        return `${item.name.first}`
-      }
+  // returnData = (item : any) =>{
+  //   if(item != null){
+  //     if(item.name != null){
+  //       return `${item.name.first}`
+  //     }
+  //   }
+  // }
+   
+  
+  returnData = (item : User) =>{
+        return `${item.name.first} ${item.name.last}`
+      
     }
-  }
+  
+ 
 
   returnExtractor = (index : any)=>{
     if(index != null){

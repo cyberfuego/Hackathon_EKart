@@ -1,26 +1,34 @@
 import * as React from 'react';
 import { View, Text, Button, Alert, StyleSheet, ImageBackground ,TouchableOpacity} from 'react-native';
-import HomeScreen from '../HomeScreen';
+
+
+
 
 class Dashboard extends React.Component<any, any>  {
-  
 
-  _onPress() {
-    <View><HomeScreen/></View>
-   
-  // Alert.alert('Start Shopping!');
+  static navigationOptions = {
+    header: null,
+  };
+
+  _onPress=()=> {
+   console.log('navigation',this.props.navigation);
+   this.props.navigation.navigate('Home',{id:1})
+ 
   }
 
+  
+
   public render() {
+    console.log('inside dashboard');
     return (
       <View>
 
         <View >
-          <ImageBackground style={imageStyle.imgStyle} source={require('../src/app/assets/img_background.jpg')} >
+          <ImageBackground style={imageStyle.imgStyle} source={require('../app/assets/img_background.jpg')} >
             <Text style={{ textAlign: 'right', fontFamily: 'Midtown', marginTop: 50, marginEnd: 50, fontSize: 60, color: "#841584" }}>
               FashionMania
              </Text>
-            <TouchableOpacity onPress={this._onPress} style={styles.btnStyle} activeOpacity = {0.8}>
+            <TouchableOpacity onPress={()=>this._onPress()} style={styles.btnStyle} activeOpacity = {0.8}>
               <Text style={{color:"#FFFFFF",fontSize: 30}}>
                 START SHOPPING 
                </Text>
@@ -50,6 +58,10 @@ const styles = StyleSheet.create({
 
 });
 
+
+
+
+
 const imageStyle = StyleSheet.create({
   imgStyle: {
     width: '100%', height: '100%',
@@ -57,5 +69,7 @@ const imageStyle = StyleSheet.create({
 
 
 });
+
+
 
 export default Dashboard;
