@@ -12,7 +12,7 @@ class Dashboard extends React.Component<any, any>  {
 
   _onPress=()=> {
    console.log('navigation',this.props.navigation);
-   this.props.navigation.navigate('Home',{id:1})
+   this.props.navigation.navigate('HomeScreen',{id:1})
   }
 
   
